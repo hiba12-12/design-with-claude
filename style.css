@@ -270,6 +270,12 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
 }
 
+.feature-card--photo {
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-end;
+}
+
 .eyebrow {
   font-size: 12px;
   font-weight: 700;
