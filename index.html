@@ -24,7 +24,18 @@
       <a href="#" class="signin">Sign in</a>
       <a href="#" class="btn btn-primary">Get started</a>
     </div>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#blog">Blog</a>
+    <a href="#join">Join us</a>
+    <a href="#" class="signin">Sign in</a>
+    <a href="#" class="btn btn-primary">Get started</a>
+  </nav>
 </header>
 
 <main>
@@ -117,6 +128,23 @@
     <p>© 2026 Bloom. Where money grows beautifully.</p>
   </div>
 </footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('is-open');
+    menuToggle.classList.toggle('is-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </body>
 </html>
